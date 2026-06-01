@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# OR - either can be true
+
+if [[ -z "$1" || "$1" == "--help" ]]; then
+    echo "Usage: $0 <filename>"
+    exit 1
+fi
+
+# NOT - invert the condition
+
+if [[ ! -f "$1" ]]; then
+    echo "Not a file: $1"
+fi
+if [[ -f "$1" ]]; then
+    echo "It's a file"
+elif [[ -d "$1" ]]; then
+    echo "It's a directory"
+else
+    echo "Not found: $1"
+fi
